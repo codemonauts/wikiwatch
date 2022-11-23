@@ -1,0 +1,21 @@
+{
+    "name": "wikiwatch bot",
+    "organisations": [
+        "NASA": ["198.51.100.0/24" ],
+        "Sea Shepherd": ["2001:DB8::/32"]
+    ],
+    "organisations_file": "./ranges.json",
+    "min_diff": 10,
+    "mastodon": {
+        "server": "https:/botsin.space",
+        "client_key": "asdf",
+        "client_secret": "asdf",
+        "access_token": "asdf"
+    },
+    "twitter": {
+        "consumer_key": "asdf",
+        "consumer_secret": "asdf",
+        "access_token": "asdf",
+        "access_secret": "asdf"
+    }
+}
