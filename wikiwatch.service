@@ -1,0 +1,10 @@
+[Unit]
+Description=Wikiwatch
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/wikiwatch -config /etc/wikiwatch/config.json
+
+[Install]
+WantedBy=multi-user.target
