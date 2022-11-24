@@ -57,11 +57,11 @@ func (c Config) loadFile(path string) *Config {
 
 	data, err := os.ReadFile(path)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	err = json.Unmarshal(data, &c)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	return &c
 }
