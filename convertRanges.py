@@ -28,7 +28,6 @@ with open(filename) as fh:
     data = json.loads(fh.read())
 
 for k, v in data.items():
-    print(k)
     newRanges.append({"name": k, "ranges": v})
 
 print(json.dumps(newRanges, indent=4))
