@@ -63,7 +63,13 @@ func (event RecentChange) getDiffLength() int {
 }
 func handleAnonymousEdit(event RecentChange, config *Config) {
 	editIP := net.ParseIP(event.User)
-	log.Debugf("Anonymous Edit from %s\n", editIP)
+
+	log.WithFields(log.Fields{
+		"title": event.Title,
+		"type":  event.Type,
+		"bot":   event.Bot,
+		"user":  event.User,
+	}).Debug("Received anonymous Edit")
 
 	for _, org := range config.Organisations {
 		for _, network := range org.Networks {
@@ -95,14 +101,6 @@ func handleRecentChange(msg *sse.Event, config *Config) {
 	json.Unmarshal(msg.Data, &event)
 	editIP := net.ParseIP(event.User)
 	diffLength := event.getDiffLength()
-
-	log.WithFields(log.Fields{
-		"title":      event.Title,
-		"type":       event.Type,
-		"bot":        event.Bot,
-		"user":       event.User,
-		"diffLength": diffLength,
-	}).Debug("Received change event from Wikipedia")
 
 	// Check criterya
 	if event.Type == "edit" && event.Bot == false && editIP != nil && diffLength > config.MinDiff {
