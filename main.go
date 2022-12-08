@@ -34,6 +34,11 @@ func main() {
 	log.Infof("Starting bot %q\n", config.Name)
 	client := sse.NewClient("https://stream.wikimedia.org/v2/stream/recentchange")
 	log.Info("Subscribing to recentchange eventstream")
+
+	client.OnDisconnect(func(c *sse.Client) {
+		log.Fatal("Disconnected!")
+	})
+
 	for {
 		err = client.Subscribe("recentchange", func(msg *sse.Event) {
 			handleRecentChange(msg, config)
@@ -41,8 +46,5 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		client.OnDisconnect(func(c *sse.Client) {
-			log.Fatal("Disconnected!")
-		})
 	}
 }
