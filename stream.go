@@ -78,7 +78,8 @@ func handleAnonymousEdit(event RecentChange, config *Config) {
 				log.WithFields(log.Fields{
 					"article": event.Title,
 					"IP":      editIP,
-				}).Info("Found an anonymous edit from %q\n", org.Name)
+					"org":     org.Name,
+				}).Info("Found an anonymous edit from a known IP")
 
 				if config.hasMastodon() {
 					log.Debug("Config contains a Mastodon account. Sending Toot")
