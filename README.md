@@ -10,7 +10,7 @@ We mainly built this tool to migrate our own bots:
   * @bundesedit ([Twitter](https://twitter.com/bundesedit),[Mastodon](https://botsin.space/@bundesedit))
   * @euroedit ([Twitter](https://twitter.com/euroedit),[Mastodon](https://botsin.space/@bundesedit))
   * @landesedit ([Twitter](https://twitter.com/landesedit),[Mastodon](https://botsin.space/@bundesedit))
-  * @politikedit ([Twitter](https://twitter.com/politikedit))
+  * @politikedit ([Twitter](https://twitter.com/politikedits))
 
 But if you also run a bot with this tool, we would love a PR with the name and link added to this list from you :)
 
@@ -21,10 +21,10 @@ ipranges file to the new syntax used by this tool.
 
 ## Get Mastodon credentials
   * Choose a Mastodon instance (There are servers specifically for bots like e.g. botsin.space)
-  * Create an Account
+  * Create an account
   * Go to `<serveraddress>/settings/applications` and create a new application
   * Give it only the `write:statuses` scope
-  * Click you application to get client key, client secret and access token
+  * Click on your application to get the client key, client secret and access token
   * Add a `mastodon` section to your config file (check the example config)
 
 As soon as the bot finds a mastodon section in the config, it will start sending toots.
@@ -38,7 +38,7 @@ As soon as the bot finds a mastodon section in the config, it will start sending
   * Click "Keys and tokens" in the top navigation
   * Click "Generate" in the box labeled "Access Token and secrets"
   * Add a `twitter` section to your config file (check the example config) and paste the values from the popup (They
-      will only be shown once!)
+      will only be shown once on the website!)
 
 As soon as the bot finds a twitter section in the config, it will start sending tweets.
 
