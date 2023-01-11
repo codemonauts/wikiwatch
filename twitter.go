@@ -9,7 +9,6 @@ import (
 )
 
 func sendTweet(org Organisation, event RecentChange, account TwitterAccount) {
-	fmt.Println("Sending tweet")
 	text := fmt.Sprintf("%q wurde anonym aus derm Netz %s bearbeitet.\n%s", event.Title, org.Name, event.getDiffURL())
 
 	if len(text) > 280 {
