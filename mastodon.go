@@ -10,7 +10,7 @@ import (
 )
 
 func sendToot(org Organisation, event RecentChange, account MastodonAccount) {
-	text := fmt.Sprintf("%q wurde anonym aus derm Netz %s bearbeitet.\n%s", event.Title, org.Name, event.getDiffURL())
+	text := fmt.Sprintf("%q wurde anonym aus dem Netz %s bearbeitet.\n%s", event.Title, org.Name, event.getDiffURL())
 
 	if len(text) > 500 {
 		log.Error("Toot text is  to long!")

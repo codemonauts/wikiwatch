@@ -9,7 +9,7 @@ import (
 )
 
 func sendTweet(org Organisation, event RecentChange, account TwitterAccount) {
-	text := fmt.Sprintf("%q wurde anonym aus derm Netz %s bearbeitet.\n%s", event.Title, org.Name, event.getDiffURL())
+	text := fmt.Sprintf("%q wurde anonym aus dem Netz %s bearbeitet.\n%s", event.Title, org.Name, event.getDiffURL())
 
 	if len(text) > 280 {
 		log.Error("Tweet text is  to long!")
